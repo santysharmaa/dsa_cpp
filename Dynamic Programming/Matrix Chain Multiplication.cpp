@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 int MatrixMultiplicationCost(vector<int> &A) {
     int n=A.size();
     int m[n][n];
@@ -19,6 +22,7 @@ int MatrixMultiplicationCost(vector<int> &A) {
     return m[1][n-1];
 }
 
-int Solution::solve(vector<int> &A) {
-    return MatrixMultiplicationCost(A);
+int main(){
+    vector<int> a = {};
+    return 0;
 }
