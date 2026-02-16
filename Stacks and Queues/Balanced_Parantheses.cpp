@@ -1,4 +1,7 @@
-int Solution::solve(string str)
+#include <bits/stdc++.h>
+using namespace std;
+
+int solve(string str)
 {
     int n=str.length(),i;
     if(n==1)
@@ -20,5 +23,12 @@ int Solution::solve(string str)
     }
     if(s.empty())
     return 1;
+    return 0;
+}
+
+
+int main() {
+    string s = "Santy";
+    cout<<solve(s);
     return 0;
 }
