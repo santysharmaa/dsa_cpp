@@ -5,6 +5,7 @@ using namespace std;
 int largestRectangleArea(vector<int>& heights) {
     stack<int> st;
     int maxArea = 0;
+    
     int n = heights.size();
     
     for(int i = 0; i <= n; i++) {
@@ -37,15 +38,11 @@ int BF_largestRectangleArea(vector<int>& heights) {
     for(int i = 0; i < n; i++) {
         int height = heights[i];
 
-        // Expand left
         int left = i;
-        while(left > 0 && heights[left - 1] >= height)
-            left--;
+        while(left > 0 && heights[left - 1] >= height) left--;
 
-        // Expand right
         int right = i;
-        while(right < n - 1 && heights[right + 1] >= height)
-            right++;
+        while(right < n - 1 && heights[right + 1] >= height) right++;
 
         int width = right - left + 1;
         maxArea = max(maxArea, height * width);
@@ -58,6 +55,6 @@ int BF_largestRectangleArea(vector<int>& heights) {
 int main() {
     vector<int> arr = {2, 1, 5, 6, 2 ,3};
 
-    cout<<BF_largestRectangleArea(arr);
+    cout<<largestRectangleArea(arr);
     return 0;
 }

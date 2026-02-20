@@ -1,62 +1,56 @@
-// https://www.interviewbit.com/problems/palindrome-list/
+#include <bits/stdc++.h>
+using namespace std;
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-int Solution::lPalin(ListNode* A) {
-    
-    ListNode* curr = A;
-    ListNode* mid = A;
-    ListNode* prev;
-    ListNode* newCurr;
-    ListNode* newTemp;
-    ListNode* newPrev;
-    
-    if(curr == NULL){
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
+int SolutionlPalin(ListNode* A) {
+
+    if (A == NULL || A->next == NULL)
         return 1;
+
+    // Step 1: Find middle
+    ListNode* slow = A;
+    ListNode* fast = A;
+
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
     }
-    if(curr->next == NULL){
-        return 1;
+
+    // Step 2: Skip middle for odd length
+    if (fast != NULL) {  
+        slow = slow->next;
     }
-        
-    while((curr != NULL) && (curr->next != NULL)){
-        curr = (curr->next)->next;
-        prev = mid;
-        mid = mid->next;
+
+    // Step 3: Reverse second half
+    ListNode* prev = NULL;
+    ListNode* curr = slow;
+
+    while (curr) {
+        ListNode* nextNode = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = nextNode;
     }
-    
-    prev->next = NULL;
-    
-    newCurr = mid;
-    while(newCurr != NULL){
-        newTemp = newCurr->next;
-        if(newCurr == mid){
-            newCurr->next = NULL;
-            newPrev = newCurr;
-            newCurr = newTemp;
-        }
-        else{
-            newCurr->next = newPrev;
-            newPrev = newCurr;
-            newCurr = newTemp;
-        }
-    }
-    
-    curr = A;
-    
-    while((newPrev != NULL) && (curr != NULL)){
-        if(newPrev->val != curr->val){
+
+    // Step 4: Compare both halves
+    ListNode* left = A;
+    ListNode* right = prev;
+
+    while (right) {
+        if (left->val != right->val)
             return 0;
-        }
-        newPrev = newPrev->next;
-        curr = curr->next;
+        left = left->next;
+        right = right->next;
     }
-    
+
     return 1;
-    
+}
+
+int main() {
+    return 0;
 }

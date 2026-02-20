@@ -1,14 +1,15 @@
-// https://www.interviewbit.com/problems/intersection-of-linked-lists/
+#include <bits/stdc++.h>
+using namespace std;
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-void findLength(ListNode* A, ListNode* B, int& lenA, int& lenB){
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+  };
+ 
+
+
+ void findLength(ListNode* A, ListNode* B, int& lenA, int& lenB){
     while((A != NULL) || (B != NULL)){
         if(A != NULL){
             lenA++;
@@ -21,11 +22,7 @@ void findLength(ListNode* A, ListNode* B, int& lenA, int& lenB){
     }
 } 
 
-ListNode* Solution::getIntersectionNode(ListNode* A, ListNode* B) {
-    // Do not write main() function.
-    // Do not read input, instead use the arguments to the function.
-    // Do not print the output, instead return values as specified
-    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+ListNode* getIntersectionNode(ListNode* A, ListNode* B) {
     int lenA = 0;
     int lenB = 0;
     
@@ -63,4 +60,10 @@ ListNode* Solution::getIntersectionNode(ListNode* A, ListNode* B) {
     }
     
     return NULL;
+}
+
+
+int main() {
+    
+    return 0;
 }
