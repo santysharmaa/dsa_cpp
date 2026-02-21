@@ -1,16 +1,15 @@
-// https://www.interviewbit.com/problems/2-sum-binary-tree/
+#include <bits/stdc++.h>
+using namespace std;
 
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 
-int Solution::t2Sum(TreeNode* A, int B) {
+
+int t2Sum(TreeNode* A, int B) {
     
     stack<TreeNode*> st1;
     stack<TreeNode*> st2;
@@ -74,6 +73,41 @@ int Solution::t2Sum(TreeNode* A, int B) {
         if(val1 >= val2){
             return 0;
         }
+    }
+    
+    return 0;
+}
+
+
+int main() {
+    
+    /*
+            10
+           /  \
+          5    15
+         / \   / \
+        3   7 12  18
+    */
+    
+    TreeNode* root = new TreeNode(10);
+    
+    root->left = new TreeNode(5);
+    root->right = new TreeNode(15);
+    
+    root->left->left = new TreeNode(3);
+    root->left->right = new TreeNode(7);
+    
+    root->right->left = new TreeNode(12);
+    root->right->right = new TreeNode(18);
+    
+    int B;
+    cout << "Enter target sum: ";
+    cin >> B;
+    
+    if(t2Sum(root, B)) {
+        cout << "Pair found\n";
+    } else {
+        cout << "No pair found\n";
     }
     
     return 0;
