@@ -1,3 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 int getDepth(TreeNode *root) {
     int depth = 0;
     while(root) {
@@ -19,7 +29,7 @@ bool checkNode(TreeNode *root, int count) {
         else root = root->left;
     return root;
 }
-int Solution::solve(TreeNode* A) {
+int solve(TreeNode* A) {
     if(!A) return 0;
     
     int depth = getDepth(A);
@@ -33,4 +43,30 @@ int Solution::solve(TreeNode* A) {
     
     if(checkNode(A, lo)) return lo;
     return lo - 1;
+}
+
+int main() {
+    
+    /*
+            1
+           /  \
+          2    3
+         / \   / 
+        4   5 6  
+    */
+    
+    TreeNode* root = new TreeNode(1);
+    
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
+    
+    root->left->left = new TreeNode(4);
+    root->left->right = new TreeNode(5);
+    
+    root->right->left = new TreeNode(6);
+    // root->right->right = new TreeNode(18);
+    
+    cout<<solve(root);
+    
+    return 0;
 }
