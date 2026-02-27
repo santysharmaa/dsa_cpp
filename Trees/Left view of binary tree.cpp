@@ -1,12 +1,13 @@
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+#include <bits/stdc++.h>
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
  vector<int> leftview(TreeNode *root){
     vector<int> ans;
     queue<TreeNode *> q;
@@ -33,6 +34,7 @@
 return ans;
 }
  
-vector<int> Solution::solve(TreeNode* A) {
+vector<int> solve(TreeNode* A) {
     return leftview(A);
 }
+

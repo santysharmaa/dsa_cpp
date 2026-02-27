@@ -1,3 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+
+
 vector<int> topview(TreeNode* root) 
 { 
     vector <int> ans;
@@ -40,6 +53,6 @@ vector<int> topview(TreeNode* root)
       return ans;
 } 
 
-vector<int> Solution::solve(TreeNode* A) {
+vector<int> solve(TreeNode* A) {
     return topview(A);
 }

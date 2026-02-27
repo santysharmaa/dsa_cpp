@@ -20,7 +20,7 @@ int main() {
     }
 
     cout << a << " " << b << " " << c << endl;
-    cout << maxSum << endl;
+    cout << maxum << endl;
 
     return 0;
 }

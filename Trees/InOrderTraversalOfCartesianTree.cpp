@@ -1,14 +1,14 @@
 // https://www.interviewbit.com/problems/inorder-traversal-of-cartesian-tree/
+#include <bits/stdc++.h>
+using namespace std;
 
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 int findMax(vector<int> &A, int start, int end){
     int max = A[start];
     int index = start;
@@ -36,11 +36,7 @@ TreeNode* makeCart(vector<int> &A, int start, int end){
     return root;
 }
 
-TreeNode* Solution::buildTree(vector<int> &A) {
-    // Do not write main() function.
-    // Do not read input, instead use the arguments to the function.
-    // Do not print the output, instead return values as specified
-    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
-    
+TreeNode* buildTree(vector<int> &A) {
+
     return makeCart(A, 0, A.size()-1);
 }
