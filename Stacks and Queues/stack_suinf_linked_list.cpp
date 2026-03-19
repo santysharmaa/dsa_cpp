@@ -49,7 +49,6 @@ class Stack {
 
 
     int size() {
-        // if(count<
         return count;
     }
 };
